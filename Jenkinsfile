@@ -17,6 +17,7 @@ pipeline {
                 git 'https://github.com/rishabh2834/devops_real_time_project_1'
             }
         }
+        
         stage('MODIFIED IMAGE TAG') {
             steps {
                 sh '''
@@ -26,5 +27,12 @@ pipeline {
                    '''
              }            
          }
+        
+        stage('BUILD') {
+            steps {
+                sh 'mvn clean install package'
+            }
+        } 
+        
     }
 }
